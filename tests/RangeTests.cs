@@ -25,7 +25,7 @@ namespace tests
             var counter = 0;
             var generate = range.Of(() => values[counter++]);
 
-            Assert.Equal(new[] {"a","b", "c"}, generate.Count());
+            Assert.Equal(new[] {"a","b", "c"}, generate.ToArray());
         }
     }
 }
