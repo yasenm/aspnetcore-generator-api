@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   generator:
-    image: 127.0.0.1:55000/gen:ci-14
+    image: 127.0.0.1:55000/gen:ci-${GENERATOR_BUILD_NUMBER-14}
     ports:
       - "8080:80"
   mail:
@@ -10,5 +10,7 @@ services:
     ports:
       - "8025:8025"
   integration:
-    image: 127.0.0.1:55000/gen:integration-14
+    image: 127.0.0.1:55000/gen:integration-${BUILD_NUMBER-14}
     build: .
+    environment:
+      - TEAMCITY_PROJECT_NAME
